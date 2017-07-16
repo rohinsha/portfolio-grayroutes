@@ -1,0 +1,130 @@
+/*$width: 100px;
+$height: $width/2;
+#FFC107: #FFC107;
+#ccc: #ccc;
+0.4s: 0.4s;
+
+@mixin animation($name) {
+  @-webkit-keyframes #{$name} {@content;}
+  @-moz-keyframes #{$name} {@content;}
+  @-o-keyframes #{$name} {@content;}
+  @keyframes #{$name} {@content;}
+}
+
+@mixin use-animation($name, 0.4s){
+  -webkit-animation: $name 0.4s infinite;
+  -moz-animation: $name 0.4s infinite;
+  -o-animation: $name 0.4s infinite;
+  animation: $name 0.4s infinite;
+}*/
+
+
+@-webkit-keyframes animation-up {
+  0%, 100% {
+    transform: rotate(0);
+  } 
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes animation-up {
+  0%, 100% {
+    transform: rotate(0);
+  } 
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+@-webkit-keyframes animation-down {
+  0%, 100% {
+    transform: rotate(0);
+  } 
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+@keyframes animation-down {
+  0%, 100% {
+    transform: rotate(0);
+  } 
+  50% {
+    transform: rotate(30deg);
+  }
+}
+@keyframes animation-rtol {
+  100% {
+    margin-left: -1px;
+  } 
+}
+
+@-webkit-keyframes animation-rtol {
+  100% {
+    margin-left: -1px;
+  } 
+}
+
+
+  .pacman:before, .pacman:after {
+    content: '';
+    position: absolute;
+    background: grey;
+    width: 100px;
+    height: 50px;
+    left: 49%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    border-radius: 50px 50px 0 0;
+    animation: animation-up 0.4s infinite;
+  }
+
+  .wrap-loader {
+    height: 100vh;
+    display: -webkit-box;   
+    display: -moz-box;         
+    display: -ms-flexbox;      
+    display: -webkit-flex; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color:#252839;
+    max-width: 100%;
+    opacity: 0.9;
+  }
+
+  
+  .pacman:after {
+    margin-top: -1px;
+    border-radius: 0 0 50px 50px;
+    animation: animation-down 0.4s infinite;
+  } 
+  
+  .dot{
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    z-index: -1;
+    box-shadow: 30px 0 0 #ccc,
+                60px 0 0 #ccc,
+                90px 0 0 #ccc,
+                120px 0 0 #ccc,
+                150px 0 0 #ccc;
+   animation: animation-rtol 0.4s infinite;
+  }
+
+
+@media screen and (max-width: 747px){
+.pacman:before, 
+.pacman:after,
+.dot {
+  left:42%;
+}
